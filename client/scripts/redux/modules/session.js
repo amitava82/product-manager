@@ -83,7 +83,10 @@ export function openOauthPopup() {
 export function logout(){
     return (dispatch) => {
         firebase.firebaseAuth.signOut().then(
-            r => dispatch(signOutSuccess())
+            r => {
+                dispatch(signOutSuccess());
+                dispatch(push('/home'))
+            }
         )
     }
 }

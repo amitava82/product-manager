@@ -43,14 +43,27 @@ export default class AddProduct extends React.Component{
     }
 
     render(){
+        
+        const styles = {
+            container: {
+                backgroundColor: 'white',
+                paddingTop: '80px',
+                paddingBottom: '60px',
+                paddingLeft: '20px',
+                paddingRight: '20px'
+
+            }
+        };
+
         return (
             <div className="product-container">
                 <AppBar
+                    className="appbar"
                     title="New Product"
                     iconElementLeft={<Link to="/products"><IconButton><NavigationClose /></IconButton></Link>}
                     iconElementRight={<FlatButton label="Save" onClick={this.create} /> }
                 />
-                <div className="content-wrapper">
+                <div className="content-wrapper" style={styles.container}>
                     <ProductFrom {...this.state}  onChange={this.onInputChange} />
                 </div>
             </div>

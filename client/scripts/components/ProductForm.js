@@ -67,25 +67,30 @@ export default class ProductForm extends React.Component{
                 )}
                 <br />
                 <TextField onChange={this.onChange}
+                    autoFocus
                     name="name"
+                    fullWidth={true}
                     value={name}
                     hintText="Product Name"
                     floatingLabelText="Product Name"
                 /><br />
                 <TextField onChange={this.onChange}
-                    value={supplier}       
+                    fullWidth={true}
+                    value={supplier}
                     name="supplier"
                     hintText="Supplier"
                     floatingLabelText="Supplier"
                 /><br />
                 <TextField onChange={this.onChange}
+                    fullWidth={true}
                     value={upc}       
                     name="upc"
                     hintText="UPC"
                     floatingLabelText="UPC"
                 /><br />
                 <TextField onChange={this.onChange}
-                    value={sku}       
+                    fullWidth={true}
+                    value={sku}
                     name="sku"
                     hintText="SKU"
                     floatingLabelText="SKU"

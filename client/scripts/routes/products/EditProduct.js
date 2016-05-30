@@ -59,15 +59,26 @@ export default class AddProduct extends React.Component{
         
         const {params: {id}, products: {entities, ids}} = this.props;
         const product = entities[id];
+
+        const styles = {
+            container: {
+                backgroundColor: 'white',
+                paddingTop: '80px',
+                paddingBottom: '60px',
+                paddingLeft: '20px',
+                paddingRight: '20px'
+
+            }
+        };
         
         return (
             <div className="product-container">
-                <AppBar
+                <AppBar className="appbar"
                     title="Edit Product"
                     iconElementLeft={<Link to="/products"><IconButton><NavigationClose /></IconButton></Link>}
                     iconElementRight={<FlatButton label="Save" onClick={this.save} /> }
                 />
-                <div className="content-wrapper">
+                <div className="content-wrapper"  style={styles.container}>
                     {product && <ProductForm {...this.state} onChange={this.onInputChange} />}
                 </div>
             </div>

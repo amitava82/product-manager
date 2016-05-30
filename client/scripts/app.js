@@ -8,9 +8,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {SITE_DESC} from './constants';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Toastr from './utils/toastr';
 
 import { initAuth} from './redux/modules/session';
 
@@ -37,8 +34,6 @@ export default class App extends React.Component {
                     <div id="main" className="full-height">
                         {this.props.children}
                     </div>
-                    <Footer />
-                    <Toastr />
                 </main>
             </MuiThemeProvider>
         );

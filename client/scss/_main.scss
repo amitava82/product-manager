@@ -1,15 +1,19 @@
 
 html, body{
     height: 100%;
+    background-color: #f7f7f7;
+}
+
+html{
+    background-color: #eeeeee;
 }
 
 #main{
     position: relative;
-    background-color: #f7f7f7;
 }
 
 .content-wrapper{
-    padding: 40px 60px;
+
 }
 
 .btn-lg {
