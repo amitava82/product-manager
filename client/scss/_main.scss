@@ -1,0 +1,25 @@
+
+html, body{
+    height: 100%;
+}
+
+#main{
+    position: relative;
+    background-color: #f7f7f7;
+}
+
+.content-wrapper{
+    padding: 40px 60px;
+}
+
+.btn-lg {
+    font-weight: 700;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: 0;
+}
+
+a{
+    cursor: pointer;
+}
