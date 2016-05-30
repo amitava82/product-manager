@@ -38,20 +38,11 @@ module.exports = function(grunt){
                     expand: true,
                     cwd: 'build/public/css/',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'build/public/css/',
+                    dest: 'public/css/',
                     ext: '.min.css'
                 }]
             }
         }
-    });
-
-    grunt.registerTask('webpack', 'Build webpack', function(){
-        grunt.util.spawn({
-            cmd: 'webpack',
-            args: ['p']
-        }, function(err){
-            console.log(err);
-        });
     });
 
     grunt.registerTask('css', ['sass', 'postcss']);

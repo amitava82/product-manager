@@ -1,6 +1,6 @@
 #Product Manager
 
-Simple Material UI React application to manage list of products baked by Firebase.
+Simple Material UI React application to manage list of products backed by Firebase.
 
 ###Features
 - Oauth authentication
@@ -8,7 +8,7 @@ Simple Material UI React application to manage list of products baked by Firebas
 - CRUD operations - List, Create, Edit
 
 ###Stack
-- Node
+- Node (Not necessary, left over from my boilerplate)
 - Firebase
 - React, Redux
 - SCSS

@@ -3,7 +3,7 @@ var path = require('path');
 
 var projectRoot = process.env.PWD; // Absolute path to the project root
 var resolveRoot = path.join(projectRoot, 'node_modules'); // project root/node_modules
-var publicPath = './build/public';
+var publicPath = './public/scripts';
 
 
 var envPlugin = new webpack.DefinePlugin({
@@ -38,7 +38,7 @@ module.exports = {
         filename: '[name].js',
         chunkFilename: '[id].chunk.js',
         path: publicPath,
-        publicPath: '/static/'
+        publicPath: '/public/scripts/'
     },
     module: {
         loaders: [

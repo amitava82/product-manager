@@ -56,9 +56,11 @@ export function initAuth(){
     return (dispatch) => {
         var unsub = firebase.firebaseAuth.onAuthStateChanged(
             user => {
+                if(user){
+                    dispatch(storeSession(user));
+                    dispatch(push('/products'));
+                }
                 unsub();
-                dispatch(storeSession(user));
-                dispatch(push('/products'));
             },
             e => dispatch(logout())
         );
