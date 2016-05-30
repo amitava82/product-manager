@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import {connect} from 'react-redux';
+import {push} from 'react-router-redux';
 import {Link} from 'react-router';
 import autobind from 'autobind-decorator';
 import AppBar from 'material-ui/AppBar';
@@ -20,13 +21,18 @@ export default class AddProduct extends React.Component{
     constructor(...args){
         super(...args);
         this.state = {
-
+            name: '',
+            sku: '',
+            image: null,
+            supplier: '',
+            upc: ''
         }
     }
     @autobind
     create(){
        // createProduct('amit', {name: 'something'})
         this.props.dispatch(createProduct(this.state));
+        this.props.dispatch(push('/products'));
     }
 
     @autobind
@@ -45,7 +51,7 @@ export default class AddProduct extends React.Component{
                     iconElementRight={<FlatButton label="Save" onClick={this.create} /> }
                 />
                 <div className="content-wrapper">
-                    <ProductFrom  onChange={this.onInputChange} />
+                    <ProductFrom {...this.state}  onChange={this.onInputChange} />
                 </div>
             </div>
         )

@@ -1,32 +1,15 @@
-#react-boilerplate
+#Product Manager
 
-Quick start with react project
+Simple Material UI React application to manage list of products baked by Firebase.
 
-###Includes
-- Node server
-- Passport auth
+###Features
+- Oauth authentication
+- Create product along with image upload
+- CRUD operations - List, Create, Edit
+
+###Stack
+- Node
+- Firebase
 - React, Redux
 - SCSS
-- Server side rendering
 - babel, webpack, grunt
-
-###Folder Structure
-```
-build - auto generated
-client - Client code
- |- scripts : redux stuff
-    |- components : reusable components
-    |- helpers : utilities
-    |- redux : redux actions and reducers
-    |- routes : also known as views/containers
- |- scss : styles   
-server - Server code
- |- lib: 
-    |- controllers: matches with file name as routes
-    |- core : web server and other core components
-    |- middleware : express middleares 
- |- routes : Routes json definition
- |- views
-config - configurations
-static - static files
-```

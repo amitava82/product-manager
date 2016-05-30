@@ -11,7 +11,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import CircularProgress from 'material-ui/CircularProgress';
 
-import {registerListeners} from '../../redux/modules/product';
+import {registerListeners, deleteProduct} from '../../redux/modules/product';
 
 import Product from '../../components/Product';
 
@@ -23,6 +23,11 @@ export default class ProductContainer extends React.Component{
             this.props.dispatch(registerListeners(`products/${user.uid}`));
     }
 
+    @autobind
+    delete(product){
+        this.props.dispatch(deleteProduct(product));
+    }
+
     render(){
 
         const {products: {loading, ids, entities}} = this.props;
@@ -32,7 +37,7 @@ export default class ProductContainer extends React.Component{
         if(loading) productsList = <CircularProgress />;
         
         productsList = ids.map(i=>{
-            return <Product data={entities[i]} key={i} />
+            return <Product data={entities[i]} key={i} onDelete={this.delete} />
         });
 
 

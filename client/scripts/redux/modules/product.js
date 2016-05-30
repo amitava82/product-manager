@@ -5,6 +5,7 @@ import { resolve, reject as _reject } from '../middleware/simple-promise';
 import extend from 'lodash/extend';
 import union from 'lodash/union';
 import pull from 'lodash/pull';
+import omit from 'lodash/omit';
 import {push, goBack, replace, } from 'react-router-redux';
 import firebase from '../../helpers/firebase';
 import Promise from 'bluebird';
@@ -41,18 +42,21 @@ export default function reducer(state = initialState, action){
 
         case resolve(CREATE):
         case resolve(EDIT):
-            console.log(action.payload.key)
             return extend({}, state, {
                 loading: false,
                 error: null,
                 ids: union(state.ids, [action.payload.key]),
                 entities: extend({}, state.entities, {[action.payload.key]:action.payload})
             });
-        case resolve(LIST):
+
+
+        case resolve(DELETE):
+            console.log(action.payload)
             return extend({}, state, {
                 loading: false,
                 error: null,
-                products: action.payload
+                ids: pull(state.ids, action.payload.key),
+                entities: omit(state.entities, action.payload.key)
             });
 
 
@@ -86,8 +90,30 @@ export function createProduct(data){
 
 }
 
-export function loadProducts(){
-    firebase.firebaseDb.ref('products')
+export function deleteProduct(product){
+    return (dispatch, getState) => {
+        const {session: {user}} = getState();
+        firebase.firebaseDb.ref(`products/${user.uid}/${product.key}`).remove().then(
+            r => console.log(r),
+            e => console.log(e)
+        )
+        firebase.firebaseStore.refFromURL(product.image).delete().then(
+            () => console.log('file deleted'),
+            e => console.log(e)
+        )
+    }
+}
+
+export function updateProduct(product) {
+    return (dispatch, getState) => {
+        const {session: {user}} = getState();
+        const key = product.key;
+        delete product.key;
+        firebase.firebaseDb.ref(`products/${user.uid}/${key}`).update(product).then(
+            r => console.log(r),
+            e => console.log(e)
+        )
+    }
 }
 
 
