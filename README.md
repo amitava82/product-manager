@@ -13,3 +13,13 @@ Simple Material UI React application to manage list of products backed by Fireba
 - React, Redux
 - SCSS
 - babel, webpack, grunt
+
+###How to
+Look into `client` directory for React code.
+Install firebase cli to run the app
+```
+firebase serve
+```
+
+###TODO
+Make a high order component to wire up Redux and Firebase
