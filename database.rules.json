@@ -1,4 +1,13 @@
 {
-  ".read": true,
-  ".write": true
+  "rules": {
+    "products": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write":"$user_id === auth.uid",
+        "$product": {
+          ".validate": "newData.child('user_id').val() === auth.uid"
+        }
+      }
+    }
+  }
 }

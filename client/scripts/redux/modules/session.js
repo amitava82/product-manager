@@ -70,7 +70,10 @@ export function initAuth(){
 export function openOauthPopup() {
     return (dispatch) => {
         return firebase.firebaseAuth.signInWithPopup(firebase.providers.google).then(
-            r => dispatch(storeSession(r)),
+            r => {
+                dispatch(storeSession(r));
+                dispatch(push('/products'));
+            },
             error => dispatch(logout())
         )
     }

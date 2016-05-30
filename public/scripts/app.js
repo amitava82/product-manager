@@ -23591,7 +23591,8 @@ webpackJsonp([0],[
 	function openOauthPopup() {
 	    return function (dispatch) {
 	        return _firebase2.default.firebaseAuth.signInWithPopup(_firebase2.default.providers.google).then(function (r) {
-	            return dispatch(storeSession(r));
+	            dispatch(storeSession(r));
+	            dispatch((0, _reactRouterRedux.push)('/products'));
 	        }, function (error) {
 	            return dispatch(logout());
 	        });
